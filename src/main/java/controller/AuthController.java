@@ -37,7 +37,7 @@ public class AuthController {
     public ResponseEntity<?> login(@RequestBody User user) {
 
         UserPrincipal userPrincipal =
-                userService.findByUsername(user.getUsername());
+                userService.findByUsername(user.getUserName());
 
         if (null == user || !new BCryptPasswordEncoder()
                 .matches(user.getPassword(), userPrincipal.getPassword())) {
